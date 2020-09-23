@@ -105,34 +105,33 @@ ar& operator-- (ar& arr)                      //перегрузка унарн�
         arr.ms[i] = new_ms[i];
     delete[]new_ms;
     return arr;
-    int getlen() { return len; }                           //возвращает размер массива
-    void quickSort(ar& arr, int left, int right)           //быстрая сортировка по возрастанию
-    {
-        int i = left, j = right;
-        double tmp;
-        double prev = arr.ms[left + (right - left) / 2];
-
-        while (i <= j) 
-        {
-            while (arr.ms[i] < prev)
-                i++;
-            while (arr.ms[j] > prev)
-                j--;
-            if (i <= j) {
-                tmp = arr.ms[i];
-                arr.ms[i] = arr.ms[j];
-                arr.ms[j] = tmp;
-                i++;
-                j--;
-            }
-        };
-
-        if (left < j)
-            quickSort(arr, left, j);
-        if (i < right)
-            quickSort(arr, i, right);
-    }
 }
+ int getlen() { return len; }                           //возвращает размер массива
+ void quickSort(ar& arr, int left, int right)           //быстрая сортировка по возрастанию
+ {
+      int i = left, j = right;
+      double tmp;
+      double prev = arr.ms[left + (right - left) / 2];
+      while (i <= j) 
+      {
+          while (arr.ms[i] < prev)
+              i++;
+          while (arr.ms[j] > prev)
+              j--;
+          if (i <= j) {
+              tmp = arr.ms[i];
+              arr.ms[i] = arr.ms[j];
+              arr.ms[j] = tmp;
+              i++;
+              j--;
+          }
+      };
+
+      if (left < j)
+          quickSort(arr, left, j);
+      if (i < right)
+          quickSort(arr, i, right);
+ }
 int main()
 {
     ar r(5), r1, r2(r);
